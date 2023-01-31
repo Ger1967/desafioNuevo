@@ -1,0 +1,167 @@
+html {
+  background-color: rgb(248, 239, 221);
+}
+
+/* ----------------------Componentes Varios-------------------- */
+
+button {
+  cursor: pointer;
+  background-color: rgb(236, 217, 41);
+  border: thin solid rgb(211, 167, 24);
+  border-radius: 15px;
+  height: fit-content;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+/* ----------------------MODAL-------------------- */
+
+.modal {
+  /* position: fixed; */
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  height: 90vh;
+  background-color: rgb(248, 239, 221);
+  border: thin solid rgb(219, 189, 15);
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.imagen-exit {
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+img .exit {
+  margin: 0;
+}
+
+.info {
+  display: flex;
+  padding: 0 20px 20px 20px;
+}
+
+.detalles {
+  display: flex;
+  text-align: start;
+}
+
+.detalles img {
+  width: 150px;
+  height: 150px;
+}
+
+.detalles h3,
+p {
+  margin: 0;
+}
+
+ul li {
+  font-size: 11px;
+}
+
+.descripcion {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  text-align: start;
+  border-top: thin solid rgb(219, 189, 15);
+}
+
+.combo,
+.estats {
+  width: 50%;
+}
+
+.estats {
+  background-color: rgb(243, 211, 146);
+}
+
+.boton-modal {
+  align-self: center;
+}
+
+/* ----------------------HEADER-------------------- */
+.header {
+  display: flex;
+  height: 150px;
+  background-color: rgb(248, 239, 221);
+}
+
+.header img {
+  width: 330px;
+  height: 120px;
+  background-color: rgb(248, 239, 221);
+}
+
+.header button {
+  margin-top: 5px;
+  margin-left: 5px;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
+/* ----------------------SearchBar-------------------- */
+.searchBar input {
+  width: 300px;
+  height: 40px;
+  background-color: rgb(218, 219, 221);
+  border: thin solid rgb(195, 144, 236);
+  border-radius: 5px;
+  padding-left: 3px;
+  margin-right: 10px;
+}
+
+.searchBar button {
+  width: 150px;
+  height: 40px;
+  font-size: 20px;
+}
+
+/* ----------------------Main-------------------- */
+
+.main {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80vw;
+  padding-left: 10%;
+  margin-top: 60px;
+  /* padding-right: 10%; */
+  /* height: 1500px; */
+}
+
+.card {
+  width: 300px;
+  height: 250px;
+  background-color: rgb(218, 219, 221);
+  border: thin solid rgb(195, 144, 236);
+  border-radius: 5px;
+  margin: 15px;
+}
+
+.especialidad {
+  margin: 0;
+}
+
+.fotos {
+  width: 100px;
+  height: 100px;
+}
+
+.bt-ver-mas button {
+  margin-top: 20px;
+  font-size: 13px;
+  justify-self: flex-end;
+}
+
+/* ----------------------Footer-------------------- */
+div .footer {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 40vh;
+}
