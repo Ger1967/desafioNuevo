@@ -4,10 +4,21 @@ import SearchBar from "./components/SearchBar";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import deportistas from "./components/Data";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { list } from "./api/Rule_deportistas";
 
 function App() {
-  const [arrayDeportistas, setArrayDeportistas] = useState(deportistas);
+  // const [arrayDeportistas, setArrayDeportistas] = useState(deportistas);
+  const [arrayDeportistas, setArrayDeportistas] = useState([]);
+
+  const getDeportistas = async () => {
+    await list().then((response) => {
+      setArrayDeportistas(response);
+    });
+  };
+  useEffect(() => {
+    getDeportistas();
+  }, []);
 
   const buscar = (nombre) => {
     if (nombre === "") {
