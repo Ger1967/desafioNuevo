@@ -5,11 +5,12 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 import deportistas from "./components/Data";
 import { useState, useEffect } from "react";
-import { list } from "./api/Rule_deportistas";
+import { list, listEstadisticas } from "./api/Rule_deportistas";
 
 function App() {
   // const [arrayDeportistas, setArrayDeportistas] = useState(deportistas);
   const [arrayDeportistas, setArrayDeportistas] = useState([]);
+  const [arrayEstadisticas, setArrayEstadisticas] = useState([]);
 
   const getDeportistas = async () => {
     await list().then((response) => {
@@ -18,6 +19,15 @@ function App() {
   };
   useEffect(() => {
     getDeportistas();
+  }, []);
+
+  const getEstadisticas = async () => {
+    await listEstadisticas().then((response) => {
+      setArrayEstadisticas(response);
+    });
+  };
+  useEffect(() => {
+    getEstadisticas();
   }, []);
 
   const buscar = (nombre) => {
@@ -35,7 +45,10 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar buscar={buscar} />
-      <Main arrayDeportistas={arrayDeportistas} />
+      <Main
+        arrayDeportistas={arrayDeportistas}
+        arrayEstadisticas={arrayEstadisticas}
+      />
       <Footer />
     </div>
   );

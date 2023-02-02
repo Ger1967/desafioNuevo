@@ -5,6 +5,7 @@ import Modal from "./Modal";
 function Main(props) {
   const [openModal, setOpenModal] = useState(false);
   const [deportistaSeleccionado, setDeportistaSeleccionado] = useState({});
+
   const toggleModal = (deportista) => {
     setDeportistaSeleccionado(deportista);
     setOpenModal(!openModal);
@@ -20,7 +21,7 @@ function Main(props) {
           <>
             <div className="card">
               <h3>{deportista.nombre}</h3>
-              <img className="fotos" src={deportista.imagen} />
+              <img className="fotos" src={deportista.foto} />
               <h4 className="especialidad">{deportista.especialidad} </h4>
               <div className="bt-ver-mas">
                 <button onClick={() => toggleModal(deportista)}>Ver Mas</button>
