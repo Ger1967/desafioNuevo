@@ -14,7 +14,11 @@ function Main(props) {
   return (
     <div className="main">
       {openModal && (
-        <Modal deportista={deportistaSeleccionado} cerrarModal={toggleModal} />
+        <Modal
+          deportista={deportistaSeleccionado}
+          cerrarModal={toggleModal}
+          className="componenteModal"
+        />
       )}
       {props.arrayDeportistas.map((deportista) => {
         return (
