@@ -27,7 +27,7 @@ export const listEstadisticas = async () => {
 
 export const getEstadisticasById = async (id) => {
   let url = "/api/estadisticas/" + id;
-  return await API.get(url, id)
+  return await API.get(url)
     .then((response) => {
       return response.data;
     })

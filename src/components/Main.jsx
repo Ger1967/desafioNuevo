@@ -5,22 +5,16 @@ import Modal from "./Modal";
 function Main(props) {
   const [openModal, setOpenModal] = useState(false);
   const [deportistaSeleccionado, setDeportistaSeleccionado] = useState({});
-  const [deportistaEstadistica, setDeportistaEstadistica] = useState({});
 
   const toggleModal = (deportista) => {
     setDeportistaSeleccionado(deportista);
-    // setDeportistaEstadistica(arrayEstadisticas);
     setOpenModal(!openModal);
   };
 
   return (
     <div className="main">
       {openModal && (
-        <Modal
-          deportista={deportistaSeleccionado}
-          // estadisticas={deportistaEstadistica}
-          cerrarModal={toggleModal}
-        />
+        <Modal deportista={deportistaSeleccionado} cerrarModal={toggleModal} />
       )}
       {props.arrayDeportistas.map((deportista) => {
         return (

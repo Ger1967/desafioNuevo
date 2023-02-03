@@ -16,9 +16,9 @@ function Modal(props) {
   useEffect(() => {
     getEstadisticas();
   }, []);
-  {
-    console.log(arrayEstadisticas);
-  }
+
+  console.log(arrayEstadisticas);
+
   return (
     <section className="modal">
       <div className="imagen-exit">
@@ -54,13 +54,13 @@ function Modal(props) {
         </div>
         <div className="estats">
           <h3>Estadisticas</h3>
-          <p>Energia: {arrayEstadisticas[0].energia}</p>
-          <p>Fuerza: {arrayEstadisticas[0].fuerza}</p>
-          <p>Resistencia: {arrayEstadisticas[0].resistencia}</p>
-          <p>Agilidad: {arrayEstadisticas[0].agilidad}</p>
-          <p>Aguante: {arrayEstadisticas[0].aguante}</p>
-          <p>Dedicacion: {arrayEstadisticas[0].dedicacion}</p>
-          <p>Profesionalismo: {arrayEstadisticas[0].profesionalismo}</p>
+          <p>Energia: {arrayEstadisticas[0]?.energia}</p>
+          <p>Fuerza: {arrayEstadisticas[0]?.fuerza}</p>
+          <p>Resistencia: {arrayEstadisticas[0]?.resistencia}</p>
+          <p>Agilidad: {arrayEstadisticas[0]?.agilidad}</p>
+          <p>Aguante: {arrayEstadisticas[0]?.aguante}</p>
+          <p>Dedicacion: {arrayEstadisticas[0]?.dedicacion}</p>
+          <p>Profesionalismo: {arrayEstadisticas[0]?.profecionalismo}</p>
         </div>
       </section>
     </section>
