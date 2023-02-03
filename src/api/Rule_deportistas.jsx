@@ -1,4 +1,3 @@
-import axios from "axios";
 import API from "./Rule_API";
 
 export const list = async () => {
