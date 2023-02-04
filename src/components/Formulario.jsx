@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 function Formulario() {
   const [nombre, setNombre] = useState("");
@@ -541,9 +542,11 @@ function Formulario() {
           </button>
         </div>
         <div className="btn-atras">
-          <button type="" className="buttonFormAtras">
-            ATRAS
-          </button>
+          <Link to={"/"}>
+            <button type="" className="buttonFormAtras">
+              ATRAS
+            </button>
+          </Link>
         </div>
       </form>
     </div>
