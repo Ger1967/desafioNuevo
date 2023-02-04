@@ -5,8 +5,8 @@ import "./style.css";
 
 function Modal(props) {
   const [arrayEstadisticas, setArrayEstadisticas] = useState([]);
-  const id = props.deportista.id;
-  console.log(id);
+  const id = props.deportista.idestadisticas;
+  console.log(props);
 
   const getEstadisticas = async () => {
     await getEstadisticasById(id).then((response) => {
