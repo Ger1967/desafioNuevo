@@ -35,7 +35,7 @@ function Modal(props) {
           <div className="combo">
             <div className="detalles">
               <img src={props.deportista.foto} alt="foto" />
-              <div>
+              <div className="infoDeportistaModal">
                 <h3>{props.deportista.nombre}</h3>
                 <p>{props.deportista.especialidad}</p>
                 <ul>

@@ -22,30 +22,30 @@ button {
 .fondoModal{
   height: 100%;
   width: 100%;
-  top: 0;
-  left: 0;
   bottom:0;
   right: 0;
-  position: absolute;
+  /* El modal se soluciono con position fixed */
+  position: fixed;
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 .modal {
-  /* position: fixed; */
   display: flex;
   flex-direction: column;
-  /* position: relative;
-  top: 50%; */
   width: 80%;
   height: 90%;
   background-color: rgb(248, 239, 221);
   border: thin solid rgb(219, 189, 15);
   border-radius: 5px;
   margin: auto;
-  z-index: 1;
-
+  z-index: 2;
+}
+.infoDeportistaModal li{
+  font-size: 0.8em;
+  margin-left: 25px;
 }
 
 .imagen-exit {
@@ -65,6 +65,8 @@ img .exit {
 .detalles {
   display: flex;
   text-align: start;
+  margin-left: 10px;
+  padding-left: 5px;
 }
 
 .detalles img {
@@ -75,11 +77,9 @@ img .exit {
 .detalles h3,
 p {
   margin: 0;
+  padding-left:10px;
 }
 
-ul li {
-  font-size: 11px;
-}
 
 .descripcion {
   margin-top: 20px;
@@ -207,6 +207,7 @@ div .footer {
   bottom: 0;
   width: 100vw;
   height: 40vh;
+  z-index: 0;
 }
 
 /* ----------------------Formulario-------------------- */
@@ -225,7 +226,7 @@ div .footer {
   height: 15%;
   color: rgb(75, 21, 126);
   background-color: rgb(255, 213, 0);
-  border-radius: 50px;
+  text-align: center;
 }
 
 h3 {
