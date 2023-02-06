@@ -24,7 +24,6 @@ button {
   width: 100%;
   bottom:0;
   right: 0;
-  /* El modal se soluciono con position fixed */
   position: fixed;
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
@@ -138,6 +137,7 @@ p {
   margin-left: 5px;
   border-radius: 5px;
   text-transform: capitalize;
+  border-radius: 50px;
 }
 
 /* ----------------------SearchBar-------------------- */
