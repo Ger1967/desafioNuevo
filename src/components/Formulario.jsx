@@ -1,57 +1,32 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { postDeportista } from "../api/Rule_deportistas";
 
 function Formulario() {
-  const [nombre, setNombre] = useState("");
-  const [especialidad, setEspecialidad] = useState("");
-  const [edad, setEdad] = useState("");
-  const [altura, setAltura] = useState("");
-  const [peso, setPeso] = useState("");
-  const [nacionalidad, setNacionalidad] = useState("");
-  const [record, setRecord] = useState("");
-  const [descripcion, setDescripcion] = useState("");
+  const [nuevo, setNuevo] = useState({});
 
-  const onChangeNombre = (e) => {
-    setNombre(e.target.value);
+  const nuevoDeportista = async (deportista) => {
+    await postDeportista(deportista).then((response) => {
+      setNuevo(response);
+    });
   };
 
-  const onChangeEspecialidad = (e) => {
-    setEspecialidad(e.target.value);
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const onChangeEdad = (e) => {
-    setEdad(e.target.value);
-  };
-
-  const onChangeAltura = (e) => {
-    setAltura(e.target.value);
-  };
-
-  const onChangePeso = (e) => {
-    setPeso(e.target.value);
-  };
-
-  const onChangeNacionalidad = (e) => {
-    setNacionalidad(e.target.value);
-  };
-
-  const onChangeRecord = (e) => {
-    setRecord(e.target.value);
-  };
-
-  const onChangeDescripcion = (e) => {
-    setDescripcion(e.target.value);
-  };
-
-  const onSubmitRegistrar = (e) => {
-    e.preventDefault();
+  const onSubmit = (data) => {
+    nuevoDeportista(data);
   };
 
   return (
     <div className="contenedorForm">
-      <form className="formulario" onSubmit={onSubmitRegistrar}>
+      <form className="formulario" onSubmit={handleSubmit(onSubmit)}>
         <div className="titulo">
           <h2>Nuevo Registro</h2>
         </div>
@@ -60,16 +35,16 @@ function Formulario() {
 
         <div className="datos">
           <input
+            {...register("nombre", require)}
             type="text"
             placeholder="Inserte Nombre y Apellido...*"
             required
-            onChange={onChangeNombre}
             className="ancho"
           />
 
           <select
+            {...register("especialidad")}
             name="Especialidad"
-            onChange={onChangeEspecialidad}
             className="ancho"
           >
             <option value="especialidad" selected>
@@ -84,7 +59,7 @@ function Formulario() {
             <option value="ot">Otro</option>
           </select>
 
-          <select name="Edad" onChange={onChangeEdad} className="ancho">
+          <select name="Edad" className="ancho" {...register("edad")}>
             <option value="edad" selected>
               Edad
             </option>
@@ -146,7 +121,7 @@ function Formulario() {
             <option value="67">67</option>
           </select>
 
-          <select name="Altura" onChange={onChangeAltura} className="ancho">
+          <select name="Altura" className="ancho" {...register("altura")}>
             <option value="altura" selected>
               Altura (m)
             </option>
@@ -174,7 +149,7 @@ function Formulario() {
             <option value="2.15">2.15</option>
           </select>
 
-          <select name="Peso" onChange={onChangePeso} className="ancho">
+          <select name="Peso" className="ancho" {...register("peso")}>
             <option value="peso" selected>
               Peso (Kg)
             </option>
@@ -272,8 +247,8 @@ function Formulario() {
           </select>
 
           <select
+            {...register("nacionalidad")}
             name="nacionalidad"
-            onChange={onChangeNacionalidad}
             className="ancho"
           >
             <option value="nacionalidad" selected>
@@ -518,18 +493,18 @@ function Formulario() {
           </select>
 
           <input
+            {...register("record")}
             type="text"
             placeholder="Record del deportista..."
             required
-            onChange={onChangeRecord}
             className="ancho"
           />
 
           <input
+            {...register("descripcion")}
             type="text"
             placeholder="Descripcion..."
             required
-            onChange={onChangeDescripcion}
             className="ancho"
           />
         </div>
