@@ -22,6 +22,7 @@ function Formulario() {
 
   const onSubmit = (data) => {
     nuevoDeportista(data);
+    alert("Se agrego el deportista correctamente");
   };
 
   return (

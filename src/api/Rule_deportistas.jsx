@@ -49,7 +49,7 @@ export const postDeportista = async (deportista) => {
 };
 
 export const postEstadistica = async (estadistica) => {
-  let url = "/api/deportistas/estadisticas";
+  let url = "/api/deportistas/add/estadisticas";
   return await API.post(url, estadistica)
     .then((response) => {
       return response.data;

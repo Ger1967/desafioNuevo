@@ -1,13 +1,15 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getEstadisticasById } from "../api/Rule_deportistas";
 import "./style.css";
+import FormEstadisticas from "./FormEstadisticas";
 
 function Modal(props) {
   const [arrayEstadisticas, setArrayEstadisticas] = useState([]);
   const id = props.deportista.id;
   console.log(props);
+  const { idDeportista } = useParams;
 
   const getEstadisticas = async () => {
     await getEstadisticasById(id).then((response) => {
@@ -19,7 +21,7 @@ function Modal(props) {
   }, []);
 
   console.log(arrayEstadisticas);
-
+  <FormEstadisticas idDeportista={id} />;
   return (
     <div className="fondoModal">
       <section className="modal">
@@ -65,7 +67,7 @@ function Modal(props) {
             <p>Profesionalismo: {arrayEstadisticas[0]?.profecionalismo}</p>
             <br />
             <br />
-            <Link to="/estadisticas">
+            <Link to="/estadisticas" state={{ idDeportista: id }}>
               <button>Agregar estadisticas</button>
             </Link>
           </div>

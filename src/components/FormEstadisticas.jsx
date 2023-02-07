@@ -2,9 +2,13 @@ import { useState } from "react";
 import "./style.css";
 import { useForm } from "react-hook-form";
 import { postEstadistica } from "../api/Rule_deportistas";
+import { Link, useLocation } from "react-router-dom";
 
-function FormEstadisticas() {
+function FormEstadisticas(props) {
   const [addEstadistica, setAddEstadistica] = useState({});
+
+  const location = useLocation();
+  const { idDeportista } = location.state;
 
   const nuevaEstadistica = async (estadistica) => {
     await postEstadistica(estadistica).then((response) => {
@@ -20,7 +24,10 @@ function FormEstadisticas() {
 
   const onSubmit = (data) => {
     nuevaEstadistica(data);
+    alert("Se agregaron las estadisticas correctamente");
   };
+  console.log(nuevaEstadistica);
+
   return (
     <div className="contenedorEstadisticas">
       <form
@@ -28,6 +35,9 @@ function FormEstadisticas() {
         onSubmit={handleSubmit(onSubmit)}
         className="formEstadisticas"
       >
+        <div className="id">
+          <input type="id" value={idDeportista} {...register("id")} />
+        </div>
         <select name="energia" className="energia" {...register("energia")}>
           <option value="energia" selected>
             Energia
@@ -573,6 +583,10 @@ function FormEstadisticas() {
           <option value="100">100</option>
         </select>
         <button type="submit">Agregar</button>
+        <br />
+        <Link to="/">
+          <button>Atras</button>
+        </Link>
       </form>
     </div>
   );
