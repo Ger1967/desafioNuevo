@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Formulario from "./components/Formulario";
+import FormEstadisticas from "./components/FormEstadisticas";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/form",
     element: <Formulario />,
+  },
+  {
+    path: "/estadisticas",
+    element: <FormEstadisticas />,
   },
 ]);
 

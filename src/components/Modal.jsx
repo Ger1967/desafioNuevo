@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getEstadisticasById } from "../api/Rule_deportistas";
 import "./style.css";
 
@@ -62,6 +63,11 @@ function Modal(props) {
             <p>Aguante: {arrayEstadisticas[0]?.aguante}</p>
             <p>Dedicacion: {arrayEstadisticas[0]?.dedicacion}</p>
             <p>Profesionalismo: {arrayEstadisticas[0]?.profecionalismo}</p>
+            <br />
+            <br />
+            <Link to="/estadisticas">
+              <button>Agregar estadisticas</button>
+            </Link>
           </div>
         </section>
       </section>
