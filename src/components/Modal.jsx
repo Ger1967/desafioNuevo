@@ -4,12 +4,14 @@ import { Link, useParams } from "react-router-dom";
 import { getEstadisticasById } from "../api/Rule_deportistas";
 import "./style.css";
 import FormEstadisticas from "./FormEstadisticas";
+import axios from "axios";
 
 function Modal(props) {
   const [arrayEstadisticas, setArrayEstadisticas] = useState([]);
   const id = props.deportista.id;
   console.log(props);
   const { idDeportista } = useParams;
+  const [image, setImage] = useState("");
 
   const getEstadisticas = async () => {
     await getEstadisticasById(id).then((response) => {
@@ -19,6 +21,18 @@ function Modal(props) {
   useEffect(() => {
     getEstadisticas();
   }, []);
+
+  function handleImage(e) {
+    console.log(e.target.files);
+    setImage(e.target.files[0]);
+  }
+  function handleApi() {
+    const formData = new FormData();
+    formData.append("image", image);
+    axios.post("url", formData).then((res) => {
+      console.log(res);
+    });
+  }
 
   console.log(arrayEstadisticas);
   <FormEstadisticas idDeportista={id} />;
@@ -38,6 +52,10 @@ function Modal(props) {
           <div className="combo">
             <div className="detalles">
               <img src={props.deportista.foto} alt="foto" />
+              <div className="insertarFoto">
+                <input type="file" name="file" onChange={handleImage} />
+                <button onClick={handleApi}>Agregar foto</button>
+              </div>
               <div className="infoDeportistaModal">
                 <h3>{props.deportista.nombre}</h3>
                 <p>{props.deportista.especialidad}</p>
