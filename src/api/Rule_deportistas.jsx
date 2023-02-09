@@ -59,3 +59,15 @@ export const postEstadistica = async (estadistica) => {
       throw error.response.data.error || "Error precesando la solicitud";
     });
 };
+
+// export const addFoto = async (id) => {
+//   let url = "/api/deportistas/add/foto" + id;
+//   return await API.post(url)
+//     .then((response) => {
+//       return response.data;
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//       throw error.response.data.error || "Error precesando la solicitud";
+//     });
+// };

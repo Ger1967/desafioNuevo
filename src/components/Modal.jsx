@@ -5,6 +5,7 @@ import { getEstadisticasById } from "../api/Rule_deportistas";
 import "./style.css";
 import FormEstadisticas from "./FormEstadisticas";
 import axios from "axios";
+import { addFoto } from "../api/Rule_deportistas";
 
 function Modal(props) {
   const [arrayEstadisticas, setArrayEstadisticas] = useState([]);
@@ -29,9 +30,8 @@ function Modal(props) {
   function handleApi() {
     const formData = new FormData();
     formData.append("image", image);
-    axios.post("url", formData).then((res) => {
-      console.log(res);
-    });
+    // axios.post("url", formData).then((res) => {
+    //   console.log(res);
   }
 
   console.log(arrayEstadisticas);
@@ -52,10 +52,13 @@ function Modal(props) {
           <div className="combo">
             <div className="detalles">
               <img src={props.deportista.foto} alt="foto" />
-              <div className="insertarFoto">
+              <form
+                className="insertarFoto"
+                action="/api/deportistas/add/foto/:id"
+              >
                 <input type="file" name="file" onChange={handleImage} />
                 <button onClick={handleApi}>Agregar foto</button>
-              </div>
+              </form>
               <div className="infoDeportistaModal">
                 <h3>{props.deportista.nombre}</h3>
                 <p>{props.deportista.especialidad}</p>
