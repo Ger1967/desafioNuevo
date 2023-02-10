@@ -29,7 +29,7 @@ function Modal(props) {
   }
   function handleApi() {
     const formData = new FormData();
-    formData.append("image", image);
+    formData.append("img", image);
     // axios.post("url", formData).then((res) => {
     //   console.log(res);
   }
@@ -52,10 +52,7 @@ function Modal(props) {
           <div className="combo">
             <div className="detalles">
               <img src={props.deportista.foto} alt="foto" />
-              <form
-                className="insertarFoto"
-                action="/api/deportistas/add/foto/:id"
-              >
+              <form className="insertarFoto" action="/api/deportistas/add/foto">
                 <input type="file" name="file" onChange={handleImage} />
                 <button onClick={handleApi}>Agregar foto</button>
               </form>

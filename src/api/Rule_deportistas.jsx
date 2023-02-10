@@ -60,8 +60,8 @@ export const postEstadistica = async (estadistica) => {
     });
 };
 
-// export const addFoto = async (id) => {
-//   let url = "/api/deportistas/add/foto" + id;
+// export const addFoto = async () => {
+//   let url = "/api/deportistas/add/foto";
 //   return await API.post(url)
 //     .then((response) => {
 //       return response.data;
