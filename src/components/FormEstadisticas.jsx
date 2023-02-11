@@ -26,6 +26,7 @@ function FormEstadisticas(props) {
     nuevaEstadistica(data);
     alert("Se agregaron las estadisticas correctamente");
   };
+
   console.log(nuevaEstadistica);
 
   return (

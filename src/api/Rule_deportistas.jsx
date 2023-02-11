@@ -60,6 +60,18 @@ export const postEstadistica = async (estadistica) => {
     });
 };
 
+export const deleteDeportista = async (id) => {
+  let url = "/api/deportistas/delete/" + id;
+  return await API.delete(url)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.log(error);
+      throw error.response.data.error || "Error precesando la solicitud";
+    });
+};
+
 // export const addFoto = async () => {
 //   let url = "/api/deportistas/add/foto";
 //   return await API.post(url)
